@@ -1,21 +1,15 @@
 {
   "id": "/",
-  "name": "Chwee-up-hajah",
-  "short_name": "Chwee-up",
+  "name": "타임옥션 | 경매로 만나는 중고 마켓",
+  "short_name": "타임옥션",
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "display_override": [
-    "window-controls-overlay"
-  ],
-  "protocol_handlers": [
-    {
-      "protocol": "web+myapp",
-      "url": "/handle?data=%s"
-    }
-  ],
+  "orientation": "portrait",
+  "description": "쇼핑의 재미와 경매의 재미를 한 번에 중고 경매 플랫폼 타임옥션",
+  "lang": "ko",
   "icons": [
     {
       "src": "/TA_192x192.webp",
