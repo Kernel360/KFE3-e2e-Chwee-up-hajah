@@ -50,7 +50,7 @@ export async function middleware(request: NextRequest) {
 
     // 대시보드, 프로필 등 보호된 페이지 경로 판별
     const isProtectedRoute =
-      request.nextUrl.pathname.startsWith('/main') ||
+      request.nextUrl.pathname.startsWith('/signup/complete') ||
       request.nextUrl.pathname.startsWith('/profile') ||
       request.nextUrl.pathname.startsWith('/admin') ||
       request.nextUrl.pathname.startsWith('/chat');
@@ -61,7 +61,8 @@ export async function middleware(request: NextRequest) {
     }
 
     // 로그인/회원가입 페이지에 접근하려는데 이미 로그인된 경우 대시보드로 리디렉션
-    if (isAuthRoute && session) {
+    // 단, /signup/complete 페이지는 예외로 둠
+    if (isAuthRoute && session && request.nextUrl.pathname !== '/signup/complete') {
       return NextResponse.redirect(new URL('/main', request.url));
     }
 
