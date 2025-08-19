@@ -8,6 +8,7 @@ import { ZodFormattedError } from 'zod';
 
 import { handleInputChange, handleSubmit } from '@/features/profile/model/handlers';
 import { ProfileAvatarUpload } from '@/features/profile/ui/ProfileAvatarUpload';
+
 import { useUpdateProfile } from '@/shared/api/client/profile/useUpdateProfile';
 import { getCacheBustingUrl } from '@/shared/lib/utils/avatar';
 import { ProfileFormType, UserProfileType } from '@/shared/types/profile';

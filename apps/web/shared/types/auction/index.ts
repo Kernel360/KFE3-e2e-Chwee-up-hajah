@@ -66,3 +66,5 @@ export interface UpdateAuctionParams {
   auctionData: AuctionBase;
   productData: ProductItem;
 }
+
+export type HotdealCountdownStatus = 'UPCOMING' | 'ACTIVE' | 'FINISHED';

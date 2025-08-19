@@ -1,9 +1,11 @@
 // callback/page.tsx
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { supabase } from '../../../shared/lib/supabase/supabase';
+
+import { useRouter } from 'next/navigation';
+
+import { supabase } from '@/shared/lib/supabase/supabase';
 
 const AuthCallbackPage = () => {
   const router = useRouter();

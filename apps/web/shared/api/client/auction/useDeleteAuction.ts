@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 
-import { deleteAuction } from '../../server/auction/deleteAuction';
+import { deleteAuction } from '@/shared/api/server/auction/deleteAuction';
 
 export const useDeleteAuction = () => {
   const queryClient = useQueryClient();

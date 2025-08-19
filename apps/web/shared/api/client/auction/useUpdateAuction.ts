@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 
-import { updateAuction } from '../../server/auction/updateAuction';
+import { updateAuction } from '@/shared/api/server/auction/updateAuction';
 
 export const useUpdateAuction = () => {
   const queryClient = useQueryClient();

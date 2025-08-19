@@ -2,10 +2,10 @@
 import { Dispatch, SetStateAction, useState } from 'react';
 
 import { Button } from '@repo/ui/design-system/base-components/Button/index';
+import { Input } from '@repo/ui/design-system/base-components/Input/index';
 import { X } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
-import { Input } from '../../../../../packages/ui/src/design-system/base-components/Input/Input';
 import { searchInputStyles } from '../styles/searchInput.styles';
 
 interface Props {

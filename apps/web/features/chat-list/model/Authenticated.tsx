@@ -1,8 +1,10 @@
 'use client';
 
-import { useAuthStore } from '@/shared/stores/auth';
-import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+
+import { useRouter } from 'next/navigation';
+
+import { useAuthStore } from '@/shared/stores/auth';
 
 interface Props {
   children: (userId: string) => React.ReactNode;

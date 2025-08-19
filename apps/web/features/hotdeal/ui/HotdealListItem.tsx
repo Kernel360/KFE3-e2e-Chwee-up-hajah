@@ -10,6 +10,8 @@ import { HotDeal } from '@/shared/types/db';
 
 import { useHotdealCountdownLogic } from '../model/useHotdealCountdownLogic';
 
+import { HotdealCountdownDisplay } from './HotdealCountdownDisplay';
+
 interface HotdealListItemProps {
   hotdeal: HotDeal & {
     status: string;
@@ -17,7 +19,7 @@ interface HotdealListItemProps {
 }
 
 export const HotdealListItem = ({ hotdeal }: HotdealListItemProps) => {
-  const { countdown } = useHotdealCountdownLogic({ data: hotdeal });
+  const { status, targetTime, message } = useHotdealCountdownLogic({ data: hotdeal });
 
   return (
     <Link
@@ -45,12 +47,7 @@ export const HotdealListItem = ({ hotdeal }: HotdealListItemProps) => {
           </span>
         </div>
         <div className={AuctionListItemStyles.itemSmallTextContainerStyle}>
-          <span>
-            {countdown.message}{' '}
-            {countdown.hours !== '00'
-              ? `${countdown.hours}:${countdown.minutes}:${countdown.seconds}`
-              : `${countdown.minutes}:${countdown.seconds}`}
-          </span>
+          <HotdealCountdownDisplay status={status} targetTime={targetTime} message={message} />
         </div>
       </div>
     </Link>

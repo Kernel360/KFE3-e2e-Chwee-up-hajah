@@ -1,5 +1,6 @@
-import { AuctionItem } from '@/shared/types/auction';
 import { useQuery } from '@tanstack/react-query';
+
+import { AuctionItem } from '@/shared/types/auction';
 
 export const useMyWonAuctions = (userId: string) => {
   return useQuery<AuctionItem[]>({

@@ -8,8 +8,8 @@ import { usePathname, useRouter } from 'next/navigation';
 
 import { useAuthStore } from '@/shared/stores/auth';
 import { useHeaderStore } from '@/shared/stores/headerStore';
+import { useModalStore } from '@/shared/stores/modal';
 
-import { useModalStore } from '../../../shared/stores/modal';
 import { headerStyles as styles } from '../styles/header.styles';
 
 export const Header = () => {

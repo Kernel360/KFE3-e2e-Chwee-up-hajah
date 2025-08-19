@@ -10,12 +10,14 @@ import { useDeleteAuction } from '@/shared/api/client/auction/useDeleteAuction';
 import { useAuthStore } from '@/shared/stores/auth';
 import { useModalStore } from '@/shared/stores/modal';
 
+import { AuctionTimer } from './AuctionTimer';
 import { auctionDetailCardStyle } from './styles/AuctionDetailCard.styles';
 
 interface AuctionDetailCardProps {
   currentBidCost: number;
   startBidCost: number;
-  remainingTime: string;
+  startTime: string;
+  endTime: string;
   minBidCost: number;
   bidUnit: number;
   bidCost: number;
@@ -31,7 +33,8 @@ interface AuctionDetailCardProps {
 export const AuctionDetailCard = ({
   currentBidCost,
   startBidCost,
-  remainingTime,
+  startTime,
+  endTime,
   minBidCost,
   bidUnit,
   bidCost,
@@ -91,7 +94,7 @@ export const AuctionDetailCard = ({
           <div className={auctionDetailCardStyle.auctionDetailCardBidPriceRightContainerStyle}>
             <p>{statusText}</p>
             <p className={auctionDetailCardStyle.auctionDetailCardRemainingTimeStyle}>
-              {remainingTime}
+              <AuctionTimer startTime={startTime} endTime={endTime} />
             </p>
             <p className="text-sm">최소입찰가 : {formatPriceNumber(minBidCost)}원</p>
           </div>

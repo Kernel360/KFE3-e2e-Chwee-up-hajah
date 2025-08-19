@@ -1,8 +1,10 @@
 'use client';
 
-import { useAuthStore } from '@/shared/stores/auth';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+
+import { useRouter } from 'next/navigation';
+
+import { useAuthStore } from '@/shared/stores/auth';
 
 export default function DashboardPage() {
   const router = useRouter();

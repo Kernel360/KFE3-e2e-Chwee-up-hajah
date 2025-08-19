@@ -1,6 +1,7 @@
-import { HotDeal } from '@/shared/types/db';
 import { useQuery } from '@tanstack/react-query';
-import { fetchHotdealDetail } from '../../server/hotdeal/fetchHotdealDetail';
+
+import { fetchHotdealDetail } from '@/shared/api/server/hotdeal/fetchHotdealDetail';
+import { HotDeal } from '@/shared/types/db';
 
 export function useHotdealDetailQuery(hotdealId: string) {
   return useQuery<HotDeal, Error>({

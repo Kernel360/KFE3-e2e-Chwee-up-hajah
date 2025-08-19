@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 
-import { sendUnsubscriptionToServer } from '../../server/push/sendUnsubscriptionToServer';
+import { sendUnsubscriptionToServer } from '@/shared/api/server/push/sendUnsubscriptionToServer';
 
 export const usePushUnsubscription = () => {
   return useMutation({

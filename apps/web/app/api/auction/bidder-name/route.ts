@@ -1,5 +1,6 @@
-import { adminClient } from '@/app/admin';
 import { NextRequest, NextResponse } from 'next/server';
+
+import { adminClient } from '@/app/admin';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);

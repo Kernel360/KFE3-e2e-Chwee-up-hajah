@@ -1,8 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
-import { getTimeLeftString } from '@repo/ui/utils/getTimeLeftString';
 import { useParams } from 'next/navigation';
 
 import {
@@ -39,19 +36,6 @@ const Page = () => {
     minBidCostNumber,
   } = useAuctionBidState(auctionId);
 
-  const [displayRemainingTime, setDisplayRemainingTime] = useState('');
-
-  useEffect(() => {
-    if (data) {
-      const interval = setInterval(() => {
-        setDisplayRemainingTime(
-          getTimeLeftString({ endDate: data.end_time, startDate: data.start_time })
-        );
-      }, 1000);
-      return () => clearInterval(interval);
-    }
-  }, [data]);
-
   if (isLoading) {
     return (
       <main className="relative flex w-full flex-col items-center justify-center gap-2" role="main">
@@ -79,7 +63,8 @@ const Page = () => {
       <AuctionDetailCard
         currentBidCost={displayCurrentPrice}
         startBidCost={startBidCost}
-        remainingTime={displayRemainingTime}
+        startTime={data.start_time}
+        endTime={data.end_time}
         minBidCost={minBidCostNumber}
         bidUnit={bidUnit}
         bidCost={bidCost}

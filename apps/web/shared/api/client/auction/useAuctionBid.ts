@@ -1,9 +1,8 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 
+import { postAuctionBid } from '@/shared/api/server/auction/postAuctionBid';
 import { AuctionBidParams, AuctionBidResponse } from '@/shared/types/auction';
-
-import { postAuctionBid } from '../../server/auction/postAuctionBid';
 
 export function useAuctionBid() {
   const queryClient = useQueryClient();

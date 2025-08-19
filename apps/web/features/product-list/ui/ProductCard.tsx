@@ -10,13 +10,13 @@ import {
   Sparkles,
   Stamp,
   Tv,
-  type LucideProps,
   Watch,
+  type LucideProps,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Product } from '../../../widgets/product-section/types';
+import { Product } from '@/widgets/product-section/types';
 
 import { Styles } from './styles/product-card.styles';
 

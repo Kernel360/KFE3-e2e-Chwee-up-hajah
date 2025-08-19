@@ -1,8 +1,7 @@
+import { Footer } from '@/widgets/footer';
+import { Header } from '@/widgets/header';
 import ModalProvider from '@/widgets/modal/ui/ModalProvider';
 import { ScrollButton } from '@/widgets/scroll-button/ScrollButton';
-
-import { Footer } from '../../widgets/footer';
-import { Header } from '../../widgets/header';
 
 interface Props {
   children: React.ReactNode;

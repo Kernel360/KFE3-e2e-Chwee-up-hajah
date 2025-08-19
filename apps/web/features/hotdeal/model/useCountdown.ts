@@ -1,37 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useMemo } from 'react';
 
-export type CountdownStatus = 'UPCOMING' | 'ACTIVE' | 'FINISHED';
+import { HotdealCountdownStatus } from '@/shared/types/auction';
 
 interface CountdownParams {
-  status: CountdownStatus;
+  status: HotdealCountdownStatus;
   targetTime: Date;
 }
 
 export function useCountdown({ status, targetTime }: CountdownParams) {
-  const [remainingTime, setRemainingTime] = useState(0);
-
-  useEffect(() => {
-    if (status === 'FINISHED') {
-      setRemainingTime(0);
-      return;
-    }
-
-    const intervalId = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetTime.getTime() - now;
-
-      if (distance <= 0) {
-        setRemainingTime(0);
-        clearInterval(intervalId); // 시간이 다 되면 타이머 정지
-      } else {
-        setRemainingTime(Math.floor(distance / 1000));
-      }
-    }, 1000);
-
-    return () => clearInterval(intervalId);
-  }, [status, targetTime]);
-
-  const getMessage = () => {
+  const message = useMemo(() => {
     switch (status) {
       case 'UPCOMING':
         return '핫딜 시작까지';
@@ -42,17 +19,11 @@ export function useCountdown({ status, targetTime }: CountdownParams) {
       default:
         return '';
     }
-  };
-
-  const hours = Math.floor(remainingTime / 3600);
-  const minutes = Math.floor((remainingTime % 3600) / 60);
-  const seconds = remainingTime % 60;
+  }, [status]);
 
   return {
-    hours: String(hours).padStart(2, '0'), // 시간 추가
-    minutes: String(minutes).padStart(2, '0'),
-    seconds: String(seconds).padStart(2, '0'),
-    message: getMessage(),
-    isTimeUp: remainingTime <= 0,
+    status,
+    targetTime,
+    message,
   };
 }

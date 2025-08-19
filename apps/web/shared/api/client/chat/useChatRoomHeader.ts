@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { fetchChatRoomHeader } from '../../server/chat/fetchChatRoomHeader';
+import { fetchChatRoomHeader } from '@/shared/api/server/chat/fetchChatRoomHeader';
 
 export const useChatRoomHeader = (userId: string) => {
   return useQuery({

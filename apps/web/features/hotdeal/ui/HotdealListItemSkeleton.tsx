@@ -1,6 +1,6 @@
 import { Skeleton } from '@repo/ui/design-system/base-components/Skeleton/index';
 
-import { AuctionListItemStyles } from '../../../features/auction/ui/styles/AuctionListItem.styles';
+import { AuctionListItemStyles } from '@/features/auction/ui/styles/AuctionListItem.styles';
 
 export const HotdealListItemSkeleton = () => {
   return (

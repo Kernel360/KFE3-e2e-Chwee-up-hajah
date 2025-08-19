@@ -25,7 +25,7 @@ export default function Page({ params }: { params: Promise<{ hotdealId: string }
   const { data: user } = useUserProfileDataQuery(userId ?? '');
 
   const purchaseMutation = usePurchaseHotdeal(hotdealId);
-  const { status, countdown } = useHotdealCountdownLogic({ data });
+  const { status, targetTime, message } = useHotdealCountdownLogic({ data });
   useHotdealRealtime(hotdealId);
 
   const handlePurchase = () => {
@@ -79,7 +79,7 @@ export default function Page({ params }: { params: Promise<{ hotdealId: string }
 
   return (
     <div className="flex w-full flex-col gap-2">
-      <HotdealInfoCard data={data} countdown={countdown} />
+      <HotdealInfoCard data={data} status={status} targetTime={targetTime} message={message} />
 
       <Button
         variants="primary"

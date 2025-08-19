@@ -2,23 +2,22 @@ import Image from 'next/image';
 
 import { ProgressBar } from '@/widgets/progress-bar';
 
+import { HotdealCountdownDisplay } from '@/features/hotdeal/ui/HotdealCountdownDisplay';
+
 import { getGradeIcon } from '@/shared/lib/points/getGradeIcon';
+import { HotdealCountdownStatus } from '@/shared/types/auction';
 import { HotDeal } from '@/shared/types/db';
 
 import { HotdealInfoCardStyles } from './HotdealInfoCard.styles';
 
 interface HotdealInfoCardProps {
   data: HotDeal;
-  countdown: {
-    hours: string; // hours 추가
-    minutes: string;
-    seconds: string;
-    message: string;
-    isTimeUp: boolean;
-  };
+  status: HotdealCountdownStatus;
+  targetTime: Date;
+  message: string;
 }
 
-export const HotdealInfoCard = ({ data, countdown }: HotdealInfoCardProps) => {
+export const HotdealInfoCard = ({ data, status, targetTime, message }: HotdealInfoCardProps) => {
   // ProgressBar 및 가격 표시에 사용할 데이터 계산
   const discount = data.start_price - data.current_price;
   const totalDiscount = data.start_price - data.min_price;
@@ -65,12 +64,7 @@ export const HotdealInfoCard = ({ data, countdown }: HotdealInfoCardProps) => {
               </div>
             </div>
             <div className={HotdealInfoCardStyles.countdownContainerStyle}>
-              <div>{countdown.message}</div>
-              <div className={HotdealInfoCardStyles.countdownStyle}>
-                {countdown.hours !== '00'
-                  ? `${countdown.hours}:${countdown.minutes}:${countdown.seconds}`
-                  : `${countdown.minutes}:${countdown.seconds}`}
-              </div>
+              <HotdealCountdownDisplay status={status} targetTime={targetTime} message={message} />
             </div>
           </div>
           <ProgressBar progressData={progressData} />

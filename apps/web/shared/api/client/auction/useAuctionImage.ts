@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 
-import { postAuctionImages } from '../../server/auction/postAuctionImages';
+import { postAuctionImages } from '@/shared/api/server/auction/postAuctionImages';
 
 export const useAuctionImage = () => {
   return useMutation<string, Error, File>({

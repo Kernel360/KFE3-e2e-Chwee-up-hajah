@@ -1,7 +1,10 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useSearchParams } from 'next/navigation';
 
-import { AuctionListQueryKey, fetchAuctionList } from '../../server/auction/fetchAuctionList';
+import {
+  AuctionListQueryKey,
+  fetchAuctionList,
+} from '@/shared/api/server/auction/fetchAuctionList';
 
 export const useAuctionList = () => {
   const searchParams = useSearchParams();
