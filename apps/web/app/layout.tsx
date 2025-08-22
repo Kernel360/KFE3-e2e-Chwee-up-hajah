@@ -1,10 +1,7 @@
-import * as Sentry from '@sentry/nextjs';
 import type { Metadata, Viewport } from 'next';
 import { cookies } from 'next/headers';
-import { Toaster } from 'react-hot-toast';
 
-import AnalyticsWrapper from '@/shared/components/AnalyticsWrapper';
-import { PushSubscriptionEffect } from '@/shared/hooks/PushSubscriptionEffect';
+import ThirdPartyWrappers from '@/shared/thirdparty/ThirdPartyWrappers';
 
 import { Providers } from './providers';
 
@@ -32,26 +29,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="ko" className={`${isDark ? 'dark' : ''} bg-[#F5F5F5]`}>
       <body className={`mx-auto max-w-[375px]`}>
-        <Sentry.ErrorBoundary fallback={<p>An error has occurred</p>}>
-          <Providers>
-            <PushSubscriptionEffect />
-            {children}
-            <Toaster
-              position="bottom-center"
-              toastOptions={{
-                duration: 2300,
-                style: {
-                  background: '#484848',
-                  color: '#f5f5f5',
-                  borderRadius: '8px',
-                  boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
-                  fontSize: 12,
-                },
-              }}
-            />
-            <AnalyticsWrapper />
-          </Providers>
-        </Sentry.ErrorBoundary>
+        <Providers>
+          <ThirdPartyWrappers>{children}</ThirdPartyWrappers>
+        </Providers>
       </body>
     </html>
   );
